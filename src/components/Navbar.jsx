@@ -1,9 +1,9 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {Link} from 'react-router-dom';
 import {Button} from './Button';
 import './styles/Navbar.css';
 
-function Navbar() {
+export default function Navbar() {
     const [click,
         setClick] = useState(false);
     const [button,
@@ -19,9 +19,16 @@ function Navbar() {
             setButton(false);
         }
     }
+
+    useEffect(() => {
+        showButton();
+    }, []);
     window.addEventListener('resize', showButton);
 
-    return ( <> <nav className="navbar">
+    return ( 
+    <>
+
+    <nav className="navbar">
         <div className="navbar-container">
             <Link to="/" className="navbar-logo">
                 TRVL
@@ -50,14 +57,13 @@ function Navbar() {
                 </li>
                 <li className="nav-item">
                     <Link to='/sign-up' className="nav-links-mobile" onClick={closeMobileMenu}>
-                       Sign Up
+                        Sign Up
                     </Link>
                 </li>
             </ul>
-            {button && < Button buttonStyle = 'btn--outline' > Sign Up < /Button>}
+            {button && < Button buttonStyle = 'btn--outline' > Sign Up </Button> }
         </div>
-    </nav> < />
+    </nav>
+    </>
     )
 }
-
-export default Navbar;

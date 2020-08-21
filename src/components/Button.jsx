@@ -6,7 +6,7 @@ import './styles/Button.css';
 const STYLES = ['btn--primary', 'btn--outline', 'btn--test'];
 const SIZES = ['btn--medium', 'btn-large'];
 
-export const Button = ({
+export  const Button = ({
     children, type, onClick, buttonStyle, buttonSize
 }) => {
     const checkButtonStyle = STYLES.includes(buttonStyle)?buttonStyle:STYLES[0];
